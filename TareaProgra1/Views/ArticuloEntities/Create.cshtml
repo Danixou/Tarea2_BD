@@ -1,0 +1,63 @@
+﻿@model TareaProgra1.Models.ArticuloEntity
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1>Insrtar Articulo</h1>
+
+<h4>Datos del Articulo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Codigo" class="control-label"></label>
+                <input asp-for="Codigo" class="form-control" />
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdClaseArticulo" class="control-label"></label>
+                <input asp-for="IdClaseArticulo" class="form-control" />
+                <span asp-validation-for="IdClaseArticulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EsActivo" class="control-label">Selecciona una opción:</label><br />
+
+                <!-- Primer botón de selección -->
+                <input type="radio" asp-for="EsActivo" value="true" id="activoTrue" />
+                <label for="activoTrue">Activo</label><br />
+
+                <!-- Segundo botón de selección -->
+                <input type="radio" asp-for="EsActivo" value="false" id="activoFalse" />
+                <label for="activoFalse">Inactivo</label><br />
+
+                <span asp-validation-for="EsActivo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Insertar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a lista de Articulos</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
