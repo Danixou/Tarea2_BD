@@ -9,57 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TareaProgra1
 build_property.RootNamespace = TareaProgra1
-build_property.ProjectDir = C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\TareaProgra1\
+build_property.ProjectDir = C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\Tarea2_BD\TareaProgra1\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\TareaProgra1
+build_property.MSBuildProjectDirectory = C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\Tarea2_BD\TareaProgra1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/ArticuloEntities/Create.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/ArticuloEntities/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9FbnRpdGllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/ArticuloEntities/Delete.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/ArticuloEntities/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9FbnRpdGllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/ArticuloEntities/Details.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/ArticuloEntities/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9FbnRpdGllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/ArticuloEntities/Edit.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/ArticuloEntities/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9FbnRpdGllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/ArticuloEntities/Index.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/ArticuloEntities/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9FbnRpdGllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/Home/Index.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/Home/Privacy.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/Shared/Error.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/_ViewImports.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/_ViewStart.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/TareaProgra1/Views/Shared/_Layout.cshtml]
+[C:/Users/Usuario/Desktop/TEC/Semestre_4/BD1/TareaASP1/TareaProgra1/Tarea2_BD/TareaProgra1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8p9x74jf9s
