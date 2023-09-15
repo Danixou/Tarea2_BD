@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\TEC\\Semestre_4\\BD1\\TareaASP1\\TareaProgra1\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj": {}
+    "C:\\Users\\User\\Documents\\TEC\\2 Semestre 2023\\Bases de datos\\TareaCorta2\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\TEC\\Semestre_4\\BD1\\TareaASP1\\TareaProgra1\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj": {
+    "C:\\Users\\User\\Documents\\TEC\\2 Semestre 2023\\Bases de datos\\TareaCorta2\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\TEC\\Semestre_4\\BD1\\TareaASP1\\TareaProgra1\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\TEC\\2 Semestre 2023\\Bases de datos\\TareaCorta2\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj",
         "projectName": "TareaProgra1",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\TEC\\Semestre_4\\BD1\\TareaASP1\\TareaProgra1\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\TEC\\Semestre_4\\BD1\\TareaASP1\\TareaProgra1\\Tarea2_BD\\TareaProgra1\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\TEC\\2 Semestre 2023\\Bases de datos\\TareaCorta2\\Tarea2_BD\\TareaProgra1\\TareaProgra1.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\TEC\\2 Semestre 2023\\Bases de datos\\TareaCorta2\\Tarea2_BD\\TareaProgra1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

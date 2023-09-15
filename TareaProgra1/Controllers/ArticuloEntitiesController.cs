@@ -23,7 +23,7 @@ namespace TareaProgra1.Controllers
         // GET: ArticuloEntities
         public async Task<IActionResult> Index()
         {
-            var articulosOrdenados = await _context.Articulo.OrderBy(a => a.Nombre).ToListAsync();
+            var articulosOrdenados = _context.Articulo.FromSqlRaw("EXEC GetAllArticles");
             return _context.Articulo != null ?
                         View(articulosOrdenados) :
                         Problem("Entity set 'BDContext.Articulo'  is null.");
