@@ -912,3 +912,17 @@ C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\Tarea2_BD\Tar
 C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\k5sprt64.dll
 C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\krb5_64.dll
 C:\Users\Usuario\Desktop\TEC\Semestre_4\BD1\TareaASP1\TareaProgra1\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\User\Documents\TEC\2 Semestre 2023\Bases de datos\TareaCorta2\Tarea2_BD\TareaProgra1\bin\Debug\net6.0\runtimes\win-x64\native\krbcc64.dll

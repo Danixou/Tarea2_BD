@@ -19,8 +19,7 @@ namespace TareaProgra1.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<ArticuloEntity> Articulo = _db.getOrdenAlfabetico();
-            return View(Articulo);
+            return View();
         }
 
         public IActionResult Privacy()

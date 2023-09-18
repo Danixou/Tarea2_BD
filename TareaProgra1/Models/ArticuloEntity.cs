@@ -23,6 +23,7 @@ namespace TareaProgra1.Models
         public int IdClaseArticulo { get; set; }
 
         [Required]
+
         public decimal Precio { get; set; }
 
         [Required]

@@ -72,6 +72,7 @@ namespace TareaProgra1.Controllers
                 cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.VarChar, 32).Value = articuloEntity.Codigo;
                 cmd.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar, 128).Value = articuloEntity.Nombre;
                 cmd.Parameters.Add("@idClaseArticulo", System.Data.SqlDbType.Int).Value = articuloEntity.IdClaseArticulo;
+                //cmd.Parameters.Add("@nombreClaseArticulo", System.Data.SqlDbType.VarChar, 128).Value = articuloEntity.NombreClaseArticulo;
                 cmd.Parameters.Add("@Precio", System.Data.SqlDbType.Decimal).Value = articuloEntity.Precio;
                 cmd.Parameters.Add("@EsActivo", System.Data.SqlDbType.Bit).Value = articuloEntity.EsActivo;
                 cmd.ExecuteNonQuery();

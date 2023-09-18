@@ -12,11 +12,6 @@ namespace TareaProgra1.Data
                 
         }
 
-        public IEnumerable<ArticuloEntity> getOrdenAlfabetico()
-        {
-            return Set<ArticuloEntity>().OrderBy(a => a.Nombre).ToList();
-        }
-
         public DbSet<ArticuloEntity> Articulo { get; set; }
         
     }
