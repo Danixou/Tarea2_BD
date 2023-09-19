@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TareaProgra1.Models.ArticuloEntity>
+﻿@model IEnumerable<TareaProgra1.Models.Tablas>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Codigo)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
@@ -34,13 +34,14 @@
 @foreach (var item in Model) {
         <tr>
              <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
              <td>
-                @Html.DisplayFor(modelItem => item.IdClaseArticulo)
+                 
+                @Html.DisplayFor(modelItem => item.NombreClaseArticulo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Precio)

@@ -23,9 +23,26 @@ namespace TareaProgra1.Controllers
         // GET: ArticuloEntities
         public async Task<IActionResult> Index()
         {
-            var articulosOrdenados = _context.Articulo.FromSqlRaw("EXEC GetAllArticles");
+            var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetAllArticles").ToListAsync();
+            var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
+
+            var vistaLista = new List<Tablas>();
+
+            foreach (var articulo in articulosOrdenados)
+            {
+                var vistaModel = new Tablas
+                {
+                    Id = articulo.Id,
+                    Nombre = articulo.Nombre,
+                    IdClaseArticulo = articulo.IdClaseArticulo,
+                    Precio = articulo.Precio,
+                    EsActivo = articulo.EsActivo,
+                    NombreClaseArticulo = claseArticulos.FirstOrDefault(ca => ca.Id == articulo.IdClaseArticulo)?.Nombre
+                };
+                vistaLista.Add(vistaModel);
+            }
             return _context.Articulo != null ?
-                        View(articulosOrdenados) :
+                        View(vistaLista) :
                         Problem("Entity set 'BDContext.Articulo'  is null.");
         }
 
