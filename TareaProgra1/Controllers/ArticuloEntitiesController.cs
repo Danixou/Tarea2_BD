@@ -8,9 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using TareaProgra1.Data;
 using TareaProgra1.Models;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace TareaProgra1.Controllers
+    
 {
+ 
     public class ArticuloEntitiesController : Controller
     {
         private readonly BDContext _context;
@@ -18,6 +23,13 @@ namespace TareaProgra1.Controllers
         public ArticuloEntitiesController(BDContext context)
         {
             _context = context;
+        }
+
+        public async Task<IActionResult> salir()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Cuenta");
+
         }
 
         // GET: ArticuloEntities

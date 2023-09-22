@@ -35,7 +35,7 @@ namespace TareaProgra1.Controllers
         {
             try
             {
-                using (SqlConnection con = new(_bdcontext.Conexion))
+                using (SqlConnection con = new(_bdcontext.DefaultConnection))
                 {
                     using (SqlCommand cmd = new("sp_ValidarUsuario", con))
                     {

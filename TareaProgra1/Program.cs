@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<BDContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
+//builder.Services.AddSingleton(new BDContext(builder.Configuration.GetConnectionString("DefaultConnection")));
 //builder.Services.AddSingleton(new BDContext(builder.Configuration.GetConnectionString("Conexion")));
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>

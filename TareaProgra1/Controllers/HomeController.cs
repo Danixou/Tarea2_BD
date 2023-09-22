@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TareaProgra1.Data;
 using TareaProgra1.Models;
 
-namespace TareaProgra1.Controllers
-{
+namespace TareaProgra1.Controllers;
+
+[Authorize]
+
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -16,6 +22,14 @@ namespace TareaProgra1.Controllers
             _logger = logger;
             _db = db;
         }
+        
+        public async Task<IActionResult> salir() 
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Cuenta");  
+
+        }
+
 
         public IActionResult Index()
         {
@@ -33,4 +47,3 @@ namespace TareaProgra1.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
