@@ -63,8 +63,13 @@
         <title> Caja de Texto HTML</title>
     </head>
     <tbody>
-        <label for="filtrador"> Filtración </label>
-        <input type="text" id="filtrador" name="filtra">
+        <form id="filtrarPorNombre" method="post" action="/ArticuloEntitiesController/FiltrarPorNombre">
+
+            <label for="filtrador"> Filtración </label>
+            <input type="text" id="filtrador" name="strPorBuscar">
+            <button type ="submit"> FiltrarPorNombre </button>
+        </form>
     </tbody>
+
 
 </table>

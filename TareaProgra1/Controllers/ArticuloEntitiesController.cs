@@ -207,5 +207,37 @@ namespace TareaProgra1.Controllers
         {
           return (_context.Articulo?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+
+
+        //FILTRADOS FILTRADOS FILTRADOS
+        public async Task<IActionResult> FiltrarPorNombre(string strPorBuscar)
+        {
+
+            var strParametro = new SqlParameter("@str", strPorBuscar);
+
+            var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetStrArticles @str", strParametro).ToListAsync();
+            var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
+
+            var vistaLista = new List<Tablas>();
+
+            foreach (var articulo in articulosOrdenados)
+            {
+                var vistaModel = new Tablas
+                {
+                    Id = articulo.Id,
+                    Codigo = articulo.Codigo,
+                    Nombre = articulo.Nombre,
+                    IdClaseArticulo = articulo.IdClaseArticulo,
+                    Precio = articulo.Precio,
+                    EsActivo = articulo.EsActivo,
+                    NombreClaseArticulo = claseArticulos.FirstOrDefault(ca => ca.Id == articulo.IdClaseArticulo)?.Nombre
+                };
+                vistaLista.Add(vistaModel);
+            }
+            return _context.Articulo != null ?
+                        View(vistaLista) :
+                        Problem("Entity set 'BDContext.Articulo'  is null.");
+        }
     }
 }
