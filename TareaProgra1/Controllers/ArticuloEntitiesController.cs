@@ -45,6 +45,7 @@ namespace TareaProgra1.Controllers
                 var vistaModel = new Tablas
                 {
                     Id = articulo.Id,
+                    Codigo = articulo.Codigo,
                     Nombre = articulo.Nombre,
                     IdClaseArticulo = articulo.IdClaseArticulo,
                     Precio = articulo.Precio,
