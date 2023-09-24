@@ -11,17 +11,28 @@
     <a asp-action="Create">Insertar Articulo</a>
     <form id="filtrarPorNombre">
 
-        <label for="filtrador"> </label>
         <input type="text" id="filtrador" name="strPorBuscar">
         <button type="button" id="botonFiltrarPorNombre"> FiltrarPorNombre </button>
     </form>
 
     <form id="filtrarPorCantidad">
 
-        <label for="filtradorPorCantidad"> </label>
         <input type="text" id="inputPorCantidad" name="strPorBuscar">
         <button type="button" id="botonFiltrarPorCantidad"> FiltrarPorCantidad </button>
     </form>
+
+    <form id="filtrarPorClaseArticulo">
+        <select id="menuClaseArticulo">
+            @foreach (var item in ViewBag.ClaseArticulo)
+            {
+                <option>@item.Nombre</option>
+            }
+        </select>
+        <button type="button" id="botonFiltrarPorClaseArticulo"> Filtrar Por Clase Articulo </button>
+    </form>
+
+
+
 </p>
 
 <table class="table" id="tablaArticulos">
@@ -79,6 +90,24 @@
             url: '/ArticuloEntities/filtrarPorCantidad',
             type: 'POST',
             data: { cantidadPorBuscar: cantidadPorBuscar },
+            success: function (response) {
+                $('#tablaArticulos tbody').html(response);
+                console.log("Función ejecutada con éxito:", response);
+            },
+            error: function (error) {
+                console.error("Error al llamar a la función:", error);
+            }
+        });
+    });
+</script>
+
+<script>
+    document.getElementById("botonFiltrarPorClaseArticulo").addEventListener("click", function () {
+        var claseArticuloPorBuscar = document.getElementById("menuClaseArticulo").value;
+        $.ajax({
+            url: '/ArticuloEntities/filtrarPorClaseArticulo',
+            type: 'POST',
+            data: { claseArticuloPorBuscar: claseArticuloPorBuscar},
             success: function (response) {
                 $('#tablaArticulos tbody').html(response);
                 console.log("Función ejecutada con éxito:", response);
