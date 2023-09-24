@@ -9,8 +9,22 @@
 
 <p>
     <a asp-action="Create">Insertar Articulo</a>
+    <form id="filtrarPorNombre">
+
+        <label for="filtrador"> </label>
+        <input type="text" id="filtrador" name="strPorBuscar">
+        <button type="button" id="botonFiltrarPorNombre"> FiltrarPorNombre </button>
+    </form>
+
+    <form id="filtrarPorCantidad">
+
+        <label for="filtradorPorCantidad"> </label>
+        <input type="text" id="inputPorCantidad" name="strPorBuscar">
+        <button type="button" id="botonFiltrarPorCantidad"> FiltrarPorCantidad </button>
+    </form>
 </p>
-<table class="table">
+
+<table class="table" id="tablaArticulos">
     <thead>
         <tr>
             <th>
@@ -32,44 +46,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-             <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-             <td>
-                 
-                @Html.DisplayFor(modelItem => item.NombreClaseArticulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EsActivo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @Html.Partial("TablaParcial", Model)
     </tbody>
+</table>
 
     <head>
         <title> Caja de Texto HTML</title>
     </head>
-    <tbody>
-        <form id="filtrarPorNombre" method="post" action="/ArticuloEntitiesController/FiltrarPorNombre">
 
-            <label for="filtrador"> Filtración </label>
-            <input type="text" id="filtrador" name="strPorBuscar">
-            <button type ="submit"> FiltrarPorNombre </button>
-        </form>
-    </tbody>
-
+    <script>
+        document.getElementById("botonFiltrarPorNombre").addEventListener("click", function () {
+            var strPorBuscar = document.getElementById("filtrador").value;
+            $.ajax({
+                url: '/ArticuloEntities/filtrarPorNombre',
+                type: 'POST',
+                data: {strPorBuscar: strPorBuscar},
+                success: function (response) {
+                    $('#tablaArticulos tbody').html(response);
+                    console.log("Función ejecutada con éxito:", response);
+                },
+                error: function (error) {
+                    console.error("Error al llamar a la función:", error);
+                }
+            });
+        });
+    </script>
 
 </table>
