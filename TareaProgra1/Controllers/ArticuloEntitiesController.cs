@@ -238,6 +238,33 @@ namespace TareaProgra1.Controllers
             return PartialView("TablaParcial", vistaLista);
         }
 
+        public async Task<IActionResult> filtrarPorCantidad(string cantidadPorBuscar)
+        {
+            var strParametro = new SqlParameter("@str", cantidadPorBuscar);
+
+            var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetQuantityArticles @str", strParametro).ToListAsync();
+            var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
+
+            var vistaLista = new List<Tablas>();
+
+            foreach (var articulo in articulosOrdenados)
+            {
+                var vistaModel = new Tablas
+                {
+                    Id = articulo.Id,
+                    Codigo = articulo.Codigo,
+                    Nombre = articulo.Nombre,
+                    IdClaseArticulo = articulo.IdClaseArticulo,
+                    Precio = articulo.Precio,
+                    EsActivo = articulo.EsActivo,
+                    NombreClaseArticulo = claseArticulos.FirstOrDefault(ca => ca.Id == articulo.IdClaseArticulo)?.Nombre
+                };
+                vistaLista.Add(vistaModel);
+            }
+
+            return PartialView("TablaParcial", vistaLista);
+        }
+
         public IActionResult FiltradoPorNombre()
         {
             return View();

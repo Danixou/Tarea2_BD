@@ -72,4 +72,22 @@
         });
     </script>
 
+<script>
+    document.getElementById("botonFiltrarPorCantidad").addEventListener("click", function () {
+        var cantidadPorBuscar = document.getElementById("inputPorCantidad").value;
+        $.ajax({
+            url: '/ArticuloEntities/filtrarPorCantidad',
+            type: 'POST',
+            data: { cantidadPorBuscar: cantidadPorBuscar },
+            success: function (response) {
+                $('#tablaArticulos tbody').html(response);
+                console.log("Función ejecutada con éxito:", response);
+            },
+            error: function (error) {
+                console.error("Error al llamar a la función:", error);
+            }
+        });
+    });
+</script>
+
 </table>
