@@ -198,7 +198,8 @@ namespace TareaProgra1.Controllers
             var articuloEntity = await _context.Articulo.FindAsync(id);
             if (articuloEntity != null)
             {
-                _context.Articulo.Remove(articuloEntity);
+                //_context.Articulo.Remove(articuloEntity);
+                articuloEntity.EsActivo = false;
             }
             
             await _context.SaveChangesAsync();
