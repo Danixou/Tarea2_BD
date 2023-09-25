@@ -9,6 +9,7 @@
 
 <p>
     <a asp-action="Create">Insertar Articulo</a>
+   
     <form id="filtrarPorNombre">
 
         <input type="text" id="filtrador" name="strPorBuscar">
@@ -60,6 +61,9 @@
         @Html.Partial("TablaParcial", Model)
     </tbody>
 </table>
+<div>
+    <a asp-action="Index">Refresh</a>
+</div>
 
     <head>
         <title> Caja de Texto HTML</title>
