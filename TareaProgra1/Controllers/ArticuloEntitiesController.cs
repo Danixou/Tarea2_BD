@@ -210,11 +210,11 @@ namespace TareaProgra1.Controllers
             {
                 return Problem("Entity set 'BDContext.Articulo'  is null.");
             }
-            var articuloEntity = await _context.Articulo.FindAsync(id);
-            if (articuloEntity != null)
+            var Tablas = await _context.Articulo.FindAsync(id);
+            if (Tablas != null)
             {
                 //_context.Articulo.Remove(articuloEntity);
-                articuloEntity.EsActivo = false;
+                Tablas.EsActivo = false;
             }
             
             await _context.SaveChangesAsync();
@@ -334,7 +334,7 @@ namespace TareaProgra1.Controllers
                 vistaLista.Add(vistaModel);
             }
 
-            return PartialView("TablaParcial", vistaLista);
+            return PartialView("TablaEditarEliminar", vistaLista);
         }
 
         public IActionResult FiltradoPorNombre()
