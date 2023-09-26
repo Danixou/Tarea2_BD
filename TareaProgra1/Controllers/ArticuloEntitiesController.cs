@@ -118,19 +118,26 @@ namespace TareaProgra1.Controllers
         }
 
         // GET: ArticuloEntities/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        /*
+        public async Task<IActionResult> Edit(string? codigo)
         {
-            if (id == null || _context.Articulo == null)
+            if (codigo == null || _context.Articulo == null)
             {
                 return NotFound();
             }
-
-            var articuloEntity = await _context.Articulo.FindAsync(id);
+            var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Codigo == codigo);
+            //var articuloEntity = await _context.Articulo.FindAsync(codigo);
             if (articuloEntity == null)
             {
                 return NotFound();
             }
             return View(articuloEntity);
+        }
+        */
+
+        public IActionResult Edit()
+        {
+            return View();
         }
 
         // POST: ArticuloEntities/Edit/5
@@ -138,9 +145,9 @@ namespace TareaProgra1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Precio")] ArticuloEntity articuloEntity)
+        public async Task<IActionResult> Edit([Bind("Codigo,Nombre,NombreClaseArticulo,Precio")] ArticuloEntity articuloEntity)
         {
-            if (id != articuloEntity.Id)
+            if (string.IsNullOrEmpty(articuloEntity.Codigo) || _context.Articulo == null)
             {
                 return NotFound();
             }
@@ -169,21 +176,29 @@ namespace TareaProgra1.Controllers
         }
 
         // GET: ArticuloEntities/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        /*
+        public async Task<IActionResult> Delete(string? codigo)
         {
-            if (id == null || _context.Articulo == null)
+            if (codigo == null || _context.Articulo == null)
             {
                 return NotFound();
             }
 
-            var articuloEntity = await _context.Articulo
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Codigo == codigo);
+            //var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Id == id);
+
             if (articuloEntity == null)
             {
                 return NotFound();
             }
 
             return View(articuloEntity);
+        }
+        */
+
+        public IActionResult Delete()
+        {
+            return View();
         }
 
         // POST: ArticuloEntities/Delete/5

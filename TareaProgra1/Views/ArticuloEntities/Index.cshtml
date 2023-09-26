@@ -8,7 +8,24 @@
 <h1>Articulos</h1>
 
 <p>
-    <a asp-action="Create">Insertar Articulo</a>
+    <div>
+        <a asp-action="Create">Insertar Articulo</a>
+    </div>
+    <div>
+        <a asp-controller="ArticuloEntities" asp-action="Edit" >Editar</a>
+    </div>
+    <!--
+    <div>
+        <a asp-action="Details">Details</a>
+    </div>
+    -->
+    <div>
+        <a asp-action="Delete">Eliminar</a>
+    </div>
+        
+    
+   
+    
    
     <form id="filtrarPorNombre">
 
@@ -123,4 +140,3 @@
     });
 </script>
 
-</table>
