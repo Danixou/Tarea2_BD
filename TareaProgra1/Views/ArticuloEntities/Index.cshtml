@@ -30,13 +30,19 @@
     <form id="filtrarPorNombre">
 
         <input type="text" id="filtrador" name="strPorBuscar">
-        <button type="button" id="botonFiltrarPorNombre"> FiltrarPorNombre </button>
+        <button type="button" id="botonFiltrarPorNombre"> Filtrar Por Nombre </button>
     </form>
 
     <form id="filtrarPorCantidad">
 
         <input type="text" id="inputPorCantidad" name="strPorBuscar">
-        <button type="button" id="botonFiltrarPorCantidad"> FiltrarPorCantidad </button>
+        <button type="button" id="botonFiltrarPorCantidad"> Filtrar Por Cantidad </button>
+    </form>
+
+    <form id="filtrarPorCodigo">
+
+        <input type="text" id="inputPorCodigo" name="strPorBuscar">
+        <button type="button" id="botonFiltrarPorCodigo"> Filtrar Por Codigo </button>
     </form>
 
     <form id="filtrarPorClaseArticulo">
@@ -129,6 +135,24 @@
             url: '/ArticuloEntities/filtrarPorClaseArticulo',
             type: 'POST',
             data: { claseArticuloPorBuscar: claseArticuloPorBuscar},
+            success: function (response) {
+                $('#tablaArticulos tbody').html(response);
+                console.log("Función ejecutada con éxito:", response);
+            },
+            error: function (error) {
+                console.error("Error al llamar a la función:", error);
+            }
+        });
+    });
+</script>
+
+<script>
+    document.getElementById("botonFiltrarPorCodigo").addEventListener("click", function () {
+        var strPorBuscar = document.getElementById("inputPorCodigo").value;
+        $.ajax({
+            url: '/ArticuloEntities/filtrarPorCodigoArticulo',
+            type: 'POST',
+            data: { strPorBuscar: strPorBuscar },
             success: function (response) {
                 $('#tablaArticulos tbody').html(response);
                 console.log("Función ejecutada con éxito:", response);
