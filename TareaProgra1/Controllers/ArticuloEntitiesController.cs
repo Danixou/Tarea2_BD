@@ -310,9 +310,9 @@ namespace TareaProgra1.Controllers
             return PartialView("TablaParcial", vistaLista);
         }
 
-        public async Task<IActionResult> filtrarPorCodigoArticulo(string codigoArticuloPorBuscar)
+        public async Task<IActionResult> filtrarPorCodigoArticulo(string strPorBuscar)
         {
-            var strParametro = new SqlParameter("@str", codigoArticuloPorBuscar);
+            var strParametro = new SqlParameter("@str", strPorBuscar);
 
             var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetArticleByCode @str", strParametro).ToListAsync();
             var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
