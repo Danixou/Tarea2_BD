@@ -177,15 +177,15 @@ namespace TareaProgra1.Controllers
 
         // GET: ArticuloEntities/Delete/5
         /*
-        public async Task<IActionResult> Delete(string? codigo)
+        public async Task<IActionResult> Delete(int? Id)
         {
-            if (codigo == null || _context.Articulo == null)
+            if (Id == null || _context.Articulo == null)
             {
                 return NotFound();
             }
 
-            var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Codigo == codigo);
-            //var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Id == id);
+            //var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Codigo == codigo);
+            var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Id == Id);
 
             if (articuloEntity == null)
             {
@@ -200,6 +200,7 @@ namespace TareaProgra1.Controllers
         {
             return View();
         }
+        
 
         // POST: ArticuloEntities/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -210,11 +211,11 @@ namespace TareaProgra1.Controllers
             {
                 return Problem("Entity set 'BDContext.Articulo'  is null.");
             }
-            var Tablas = await _context.Articulo.FindAsync(id);
-            if (Tablas != null)
+            var articuloEntity = await _context.Articulo.FindAsync(id);
+            if (articuloEntity != null)
             {
                 //_context.Articulo.Remove(articuloEntity);
-                Tablas.EsActivo = false;
+                articuloEntity.EsActivo = false;
             }
             
             await _context.SaveChangesAsync();
