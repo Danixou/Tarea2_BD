@@ -11,11 +11,12 @@ using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace TareaProgra1.Controllers
     
 {
- 
+    //[Authorize]
     public class ArticuloEntitiesController : Controller
     {
         private readonly BDContext _context;
@@ -118,36 +119,32 @@ namespace TareaProgra1.Controllers
         }
 
         // GET: ArticuloEntities/Edit/5
-        /*
-        public async Task<IActionResult> Edit(string? codigo)
+        
+        public async Task<IActionResult> Edit(int? Id)
         {
-            if (codigo == null || _context.Articulo == null)
+            if (Id == null || _context.Articulo == null)
             {
                 return NotFound();
             }
-            var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Codigo == codigo);
-            //var articuloEntity = await _context.Articulo.FindAsync(codigo);
+            //var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Codigo == codigo);
+            var articuloEntity = await _context.Articulo.FindAsync(Id);
             if (articuloEntity == null)
             {
                 return NotFound();
             }
             return View(articuloEntity);
         }
-        */
-
-        public IActionResult Edit()
-        {
-            return View();
-        }
+        
+       
 
         // POST: ArticuloEntities/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("Codigo,Nombre,NombreClaseArticulo,Precio")] ArticuloEntity articuloEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Precio")] ArticuloEntity articuloEntity)
         {
-            if (string.IsNullOrEmpty(articuloEntity.Codigo) || _context.Articulo == null)
+            if (id != articuloEntity.Id)
             {
                 return NotFound();
             }
@@ -158,6 +155,7 @@ namespace TareaProgra1.Controllers
                 {
                     _context.Update(articuloEntity);
                     await _context.SaveChangesAsync();
+                    
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -174,9 +172,9 @@ namespace TareaProgra1.Controllers
             }
             return View(articuloEntity);
         }
-
+        
         // GET: ArticuloEntities/Delete/5
-        /*
+        
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null || _context.Articulo == null)
@@ -194,13 +192,9 @@ namespace TareaProgra1.Controllers
 
             return View(articuloEntity);
         }
-        */
-
-        public IActionResult Delete()
-        {
-            return View();
-        }
         
+        
+      
 
         // POST: ArticuloEntities/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -217,10 +211,11 @@ namespace TareaProgra1.Controllers
                 //_context.Articulo.Remove(articuloEntity);
                 articuloEntity.EsActivo = false;
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        
 
         private bool ArticuloEntityExists(int id)
         {
@@ -335,7 +330,7 @@ namespace TareaProgra1.Controllers
                 vistaLista.Add(vistaModel);
             }
 
-            return PartialView("TablaEditarEliminar", vistaLista);
+            return PartialView("TablaParcial", vistaLista);
         }
 
         public IActionResult FiltradoPorNombre()
