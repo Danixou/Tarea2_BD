@@ -15,6 +15,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Data;
 using System.Diagnostics;
 using System.Xml;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace TareaProgra1.Controllers
     
@@ -221,17 +222,33 @@ namespace TareaProgra1.Controllers
         
         public async Task<IActionResult> Edit(int? Id)
         {
-            if (Id == null || _context.Articulo == null)
+            var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetAllArticles").ToListAsync();
+            var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
+
+            var vistaLista = new List<Tablas>();
+
+            ViewBag.ArticuloId = Id;
+
+            foreach (var articulo in articulosOrdenados)
             {
-                return NotFound();
+                var vistaModel = new Tablas
+                {
+                    Id = articulo.Id,
+                    Codigo = articulo.Codigo,
+                    Nombre = articulo.Nombre,
+                    IdClaseArticulo = articulo.IdClaseArticulo,
+                    Precio = articulo.Precio,
+                    EsActivo = articulo.EsActivo,
+                    NombreClaseArticulo = claseArticulos.FirstOrDefault(ca => ca.Id == articulo.IdClaseArticulo)?.Nombre
+                };
+                vistaLista.Add(vistaModel);
             }
-            //var articuloEntity = await _context.Articulo.FirstOrDefaultAsync(m => m.Codigo == codigo);
-            var articuloEntity = await _context.Articulo.FindAsync(Id);
-            if (articuloEntity == null)
-            {
-                return NotFound();
-            }
-            return View(articuloEntity);
+
+            ViewBag.claseArticulo = claseArticulos;
+            
+            return _context.Articulo != null ?
+                        View(vistaLista) :
+                        Problem("Entity set 'BDContext.Articulo'  is null.");
         }
         
        
@@ -248,28 +265,9 @@ namespace TareaProgra1.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(articuloEntity);
-                    await _context.SaveChangesAsync();
-                    
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ArticuloEntityExists(articuloEntity.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(articuloEntity);
+
+
+            return RedirectToAction(nameof(Index));
         }
         
         // GET: ArticuloEntities/Delete/5
@@ -423,6 +421,79 @@ namespace TareaProgra1.Controllers
 
             var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetArticleByCode @str", strParametro).ToListAsync();
             var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
+
+            var vistaLista = new List<Tablas>();
+
+            foreach (var articulo in articulosOrdenados)
+            {
+                var vistaModel = new Tablas
+                {
+                    Id = articulo.Id,
+                    Codigo = articulo.Codigo,
+                    Nombre = articulo.Nombre,
+                    IdClaseArticulo = articulo.IdClaseArticulo,
+                    Precio = articulo.Precio,
+                    EsActivo = articulo.EsActivo,
+                    NombreClaseArticulo = claseArticulos.FirstOrDefault(ca => ca.Id == articulo.IdClaseArticulo)?.Nombre
+                };
+                vistaLista.Add(vistaModel);
+            }
+
+            return PartialView("TablaParcial", vistaLista);
+        }
+
+        public async Task<IActionResult> EditarArticulo(string nombreArticulo, string precioArticulo, string codigoArticulo, string claseArticulo, int id)
+        {
+            string connectionString = "Server=databasetarea1.ccdblu414uis.us-east-1.rds.amazonaws.com,1433;Database=Tarea2BDI;User ID=admin;Password=bases5181;TrustServerCertificate=true";
+            int idClaseArticulo;
+            decimal precioArticuloFinal;
+            precioArticuloFinal = decimal.Parse(precioArticulo);
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("GetIdClassArticleByName", connection))
+                    {
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        command.Parameters.Add("@Nombre", SqlDbType.VarChar, 128).Value = claseArticulo;
+
+                        SqlParameter parametroResultado = new SqlParameter("@Resultado", SqlDbType.Int);
+                        parametroResultado.Direction = ParameterDirection.Output;
+                        command.Parameters.Add(parametroResultado);
+
+                        command.ExecuteNonQuery();
+
+                        idClaseArticulo = (int)parametroResultado.Value;
+                    }
+
+                    using (SqlCommand command = new SqlCommand("EditarArticulo", connection))
+                    {
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.Add("IdPorCambiar", SqlDbType.Int).Value = id;
+                        command.Parameters.Add("@Nombre", SqlDbType.VarChar, 128).Value = nombreArticulo;
+                        command.Parameters.Add("@Precio", SqlDbType.Money).Value = precioArticuloFinal;
+                        command.Parameters.Add("@Codigo", SqlDbType.VarChar, 32).Value = codigoArticulo;
+                        command.Parameters.Add("@IdClaseArticulo", SqlDbType.Int).Value = idClaseArticulo;
+                        command.Parameters.Add("@NombreClaseArticulo", SqlDbType.VarChar).Value = claseArticulo;
+
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ERROR: " + ex);
+            }
+
+            var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetAllArticles").ToListAsync();
+            var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
+
 
             var vistaLista = new List<Tablas>();
 

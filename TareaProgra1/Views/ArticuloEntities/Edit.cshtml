@@ -1,4 +1,6 @@
-﻿@model TareaProgra1.Models.ArticuloEntity
+﻿@model IEnumerable<TareaProgra1.Models.Tablas>
+
+<h2>Edit Article with ID: @ViewBag.ArticuloId</h2>
 
 @{
     ViewData["Title"] = "Edit";
@@ -9,32 +11,48 @@
 <h4>ArticuloEntity</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
-                <input asp-for="Precio" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+    <form id="filtrarPorClaseArticulo">
+        <label for="label" id="1"> Nombre: </label>
+        <input type="text" id="inputNombre" name="strNombre">
+        <label for="label" id="2"> Precio: </label>
+        <input type="text" id="inputPrecio" name="strPrecio">
+        <label for="label" id="3"> Codigo: </label>
+        <input type="text" id="inputCodigo" name="strCodigo">
+        <label for="label" id="4"> Clase Articulo: </label>
+        <select id="menuClaseArticulo">
+            @foreach (var item in ViewBag.ClaseArticulo)
+            {
+                <option>@item.Nombre</option>
+            }
+        </select>
+        <button type="button" id="botonGuardar"> Guardar - Actualizar </button>
+    </form>
+
 </div>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<script>
+    document.getElementById("botonGuardar").addEventListener("click", function () {
+        var nombrePorCambiar = document.getElementById("inputNombre").value;
+        var precioPorCambiar = document.getElementById("inputPrecio").value;
+        var codigoPorCambiar = document.getElementById("inputCodigo").value;
+        var claseArticuloPorCambiar = document.getElementById("menuClaseArticulo").value;
+
+        $.ajax({
+            url: '/ArticuloEntities/EditarArticulo',
+            type: 'POST',
+            data: { nombreArticulo: nombrePorCambiar, precioArticulo: precioPorCambiar, codigoArticulo: codigoPorCambiar, claseArticulo: claseArticuloPorCambiar, id: @ViewBag.ArticuloId },
+            success: function (response) {
+                $('#tablaArticulos tbody').html(response);
+                console.log("Función ejecutada con éxito:", response);
+            },
+            error: function (error) {
+                console.error("Error al llamar a la función:", error);
+            }
+        });
+    });
+</script>
 
