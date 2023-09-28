@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Data;
+using System.Diagnostics;
+using System.Xml;
 
 namespace TareaProgra1.Controllers
     
@@ -36,6 +39,102 @@ namespace TareaProgra1.Controllers
         // GET: ArticuloEntities
         public async Task<IActionResult> Index()
         {
+            string xmlFilePath = "datos.xml";
+            string connectionString = "Server=databasetarea1.ccdblu414uis.us-east-1.rds.amazonaws.com,1433;Database=Tarea2BDI;User ID=admin;Password=bases5181;TrustServerCertificate=true";
+            //LEER CLASE ARTICULO
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(xmlFilePath);
+
+                XmlNodeList claseArticulosXML = xmlDoc.SelectNodes("/root/ClasesdeArticulos/ClasedeArticulos");
+
+                foreach (XmlNode clase in claseArticulosXML)
+                {
+                    string nombreClaseArticulos = clase.Attributes["Nombre"].Value;
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand("InsertarClaseArticulo", connection))
+                        {
+                            command.CommandType = System.Data.CommandType.StoredProcedure;
+                            command.Parameters.Add("@Nombre", SqlDbType.VarChar, 128).Value = nombreClaseArticulos;
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ERROR al leer el earchivo XML: " + ex.Message);
+            }
+
+            //LEER ARTICULOS
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(xmlFilePath);
+
+                XmlNodeList claseArticulosXML = xmlDoc.SelectNodes("/root/Articulos/Articulo");
+
+                foreach (XmlNode clase in claseArticulosXML)
+                {
+
+                    string codigoArticulo = clase.Attributes["Codigo"].Value;
+                    string nombreArticulo = clase.Attributes["Nombre"].Value;
+                    string precioString = clase.Attributes["Precio"].Value;
+                    decimal precioArticulo = 0;
+                    try
+                    {
+                        precioArticulo = decimal.Parse(precioString);
+                        Console.WriteLine("Conversión a: " + precioArticulo);
+                    }
+                    catch (FormatException ex)
+                    {
+                        Console.WriteLine("ERROR " + ex.Message);
+                    }
+                    string nombreClaseArticulo = clase.Attributes["ClasedeArticulos"].Value;
+                    int idClaseArticulo;
+                    bool activo = true;
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand("GetIdClassArticleByName", connection))
+                        {
+                            command.CommandType = System.Data.CommandType.StoredProcedure;
+                            command.Parameters.Add("@Nombre", SqlDbType.VarChar, 128).Value = nombreClaseArticulo;
+
+                            SqlParameter parametroResultado = new SqlParameter("@Resultado", SqlDbType.Int);
+                            parametroResultado.Direction = ParameterDirection.Output;
+                            command.Parameters.Add(parametroResultado);
+
+                            command.ExecuteNonQuery();
+
+                            idClaseArticulo = (int)parametroResultado.Value;
+                        }
+                        using (SqlCommand command2 = new SqlCommand("InsertarArticulo", connection))
+                        {
+                            command2.CommandType = System.Data.CommandType.StoredProcedure;
+                            command2.Parameters.Add("@Nombre", SqlDbType.VarChar, 128).Value = nombreArticulo;
+                            command2.Parameters.Add("@Codigo", SqlDbType.VarChar, 32).Value = codigoArticulo;
+                            command2.Parameters.Add("@idClaseArticulo", SqlDbType.Int).Value = idClaseArticulo;
+                            command2.Parameters.Add("@Precio", SqlDbType.Money).Value = precioArticulo;
+                            command2.Parameters.Add("@EsActivo", SqlDbType.Bit).Value = activo;
+
+                            command2.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ERROR al leer el earchivo XML: " + ex.Message);
+            }
+
             var articulosOrdenados = await _context.Articulo.FromSqlRaw("EXEC GetAllArticles").ToListAsync();
             var claseArticulos = await _context.ClaseArticulo.FromSqlRaw("EXEC GetAllClassArticles").ToListAsync();
 

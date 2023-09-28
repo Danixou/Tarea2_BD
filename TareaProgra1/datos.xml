@@ -1,0 +1,303 @@
+<root>
+<Usuarios>
+<usuario Nombre="JPerez" Password="Hola198"/>
+<usuario Nombre="MGonzalez" Password="Miclave"/>
+<usuario Nombre="CRodriguez" Password="KLMN0"/>
+<usuario Nombre="AMartinez" Password="Aquiestoy6"/>
+<usuario Nombre="LSanchez" Password="Yosoy67"/>
+</Usuarios>
+<ClasesdeArticulos>
+<ClasedeArticulos Nombre="Electricos"/>
+<ClasedeArticulos Nombre="Tornilleria"/>
+<ClasedeArticulos Nombre="Pinturas"/>
+<ClasedeArticulos Nombre="Fontaneria"/>
+<ClasedeArticulos Nombre="Electricidad"/>
+<ClasedeArticulos Nombre="Proteccion"/>
+<ClasedeArticulos Nombre="MaquinariaPesada"/>
+<ClasedeArticulos Nombre="Cerraduras"/> 
+<ClasedeArticulos Nombre="Construccion"/>
+<ClasedeArticulos Nombre="Carpinteria"/>
+<ClasedeArticulos Nombre="Jardineria"/>
+<ClasedeArticulos Nombre="Uniformes"/>
+<ClasedeArticulos Nombre="Adhesivos"/>
+<ClasedeArticulos Nombre="Automotriz"/>
+<ClasedeArticulos Nombre="Almacenamiento"/>
+</ClasesdeArticulos>
+<Articulos>
+    <Articulo
+        Codigo="AE001"
+        Nombre="Lámpara LED"
+        Precio="19.99"
+        ClasedeArticulos="Electricidad"/>
+    <Articulo
+        Codigo="AE002"
+        Nombre="Cable eléctrico"
+        Precio="7.99"
+        ClasedeArticulos="Electricidad"/>
+    <Articulo
+        Codigo="AT001"
+        Nombre="Tornillo de acero"
+        Precio="0.99"
+        ClasedeArticulos="Tornilleria"/>
+    <Articulo
+        Codigo="AT002"
+        Nombre="Tuercas hexagonales"
+        Precio="1.49"
+        ClasedeArticulos="Tornilleria"/>
+    <Articulo
+        Codigo="PJ001"
+        Nombre="Pintura acrílica"
+        Precio="12.99"
+        ClasedeArticulos="Pinturas"/>
+    <Articulo
+        Codigo="PF001"
+        Nombre="Tubo de PVC"
+        Precio="5.99"
+        ClasedeArticulos="Fontaneria"/>
+    <Articulo
+        Codigo="FER001"
+        Nombre="Taladro eléctrico"
+        Precio="99.99"
+        ClasedeArticulos="Electricos"/>
+    <Articulo
+        Codigo="FER002"
+        Nombre="Tornillos Phillips"
+        Precio="0.25"
+        ClasedeArticulos="Tornilleria"/>
+    <Articulo
+        Codigo="FER003"
+        Nombre="Pintura látex blanca"
+        Precio="24.99"
+        ClasedeArticulos="Pinturas"/>
+    <Articulo
+        Codigo="FER004"
+        Nombre="Llave de tubo ajustable"
+        Precio="14.50"
+        ClasedeArticulos="Fontaneria"/>
+    <Articulo
+        Codigo="FER006"
+        Nombre="Casco de seguridad"
+        Precio="19.99"
+        ClasedeArticulos="Proteccion"/>
+    <Articulo
+        Codigo="FER007"
+        Nombre="Motosierra a gasolina"
+        Precio="249.99"
+        ClasedeArticulos="MaquinariaPesada"/>
+    <Articulo
+        Codigo="FER008"
+        Nombre="Candado de combinación"
+        Precio="9.50"
+        ClasedeArticulos="Cerraduras"/>
+    <Articulo
+        Codigo="FER009"
+        Nombre="Ladrillos de cerámica"
+        Precio="0.99"
+        ClasedeArticulos="Construccion"/>
+    <Articulo
+        Codigo="FER010"
+        Nombre="Sierra de mano"
+        Precio="12.75"
+        ClasedeArticulos="Carpinteria"/>
+    <Articulo
+        Codigo="FER011"
+        Nombre="Manguera de jardín"
+        Precio="15.99"
+        ClasedeArticulos="Jardineria"/>
+    <Articulo
+        Codigo="FER012"
+        Nombre="Aceite de motor"
+        Precio="4.99"
+        ClasedeArticulos="Automotriz"/>
+    <Articulo
+        Codigo="FER013"
+        Nombre="Pegamento epoxi"
+        Precio="7.25"
+        ClasedeArticulos="Adhesivos"/>
+    <Articulo
+        Codigo="FER014"
+        Nombre="Overol de trabajo"
+        Precio="29.99"
+        ClasedeArticulos="Uniformes"/>
+    <Articulo
+        Codigo="FER015"
+        Nombre="Estanteria metalica"
+        Precio="49.99"
+        ClasedeArticulos="Almacenamiento"/>
+    <Articulo
+        Codigo="FER016"
+        Nombre="Destornillador de estrella"
+        Precio="5.99"
+        ClasedeArticulos="Electricos"/>
+    <Articulo
+        Codigo="FER017"
+        Nombre="Tacos de plástico para pared"
+        Precio="0.15"
+        ClasedeArticulos="Tornilleria"/>
+    <Articulo
+        Codigo="FER018"
+        Nombre="Pintura esmalte sintético"
+        Precio="29.99"
+        ClasedeArticulos="Pinturas"/>
+    <Articulo
+        Codigo="FER019"
+        Nombre="Llave inglesa ajustable"
+        Precio="11.75"
+        ClasedeArticulos="Fontaneria"/>
+    <Articulo
+        Codigo="FER020"
+        Nombre="Interruptor de luz"
+        Precio="2.99"
+        ClasedeArticulos="Electricidad"/>
+    <Articulo
+        Codigo="FER021"
+        Nombre="Extintor de incendios"
+        Precio="39.99"
+        ClasedeArticulos="Proteccion"/>
+    <Articulo
+        Codigo="FER022"
+        Nombre="Compresor de aire"
+        Precio="149.99"
+        ClasedeArticulos="MaquinariaPesada"/>
+    <Articulo
+        Codigo="FER023"
+        Nombre="Cerradura de puerta principal"
+        Precio="24.50"
+        ClasedeArticulos="Cerraduras"/>
+    <Articulo
+        Codigo="FER024"
+        Nombre="Láminas de yeso"
+        Precio="7.49"
+        ClasedeArticulos="Construccion"/>
+    <Articulo
+        Codigo="FER025"
+        Nombre="Sierra circular"
+        Precio="59.99"
+        ClasedeArticulos="Carpinteria"/>
+    <Articulo
+        Codigo="FER026"
+        Nombre="Sopladora de hojas"
+        Precio="49.99"
+        ClasedeArticulos="Jardineria"/>
+    <Articulo
+        Codigo="FER027"
+        Nombre="Filtro de aire para automovil"
+        Precio="5.99"
+        ClasedeArticulos="Automotriz"/>
+    <Articulo
+        Codigo="FER028"
+        Nombre="Cinta adhesiva de doble cara"
+        Precio="2.25"
+        ClasedeArticulos="Adhesivos"/>
+    <Articulo
+        Codigo="FER029"
+        Nombre="Guantes de trabajo resistentes"
+        Precio="9.99"
+        ClasedeArticulos="Uniformes"/>
+    <Articulo
+        Codigo="FER030"
+        Nombre="Caja de herramientas de plastico"
+        Precio="19.99"
+        ClasedeArticulos="Almacenamiento"/>
+    <Articulo
+        Codigo="FER031"
+        Nombre="Sierra de calar"
+        Precio="34.99"
+        ClasedeArticulos="Electricos"/>
+    <Articulo
+        Codigo="FER032"
+        Nombre="Clavos para concreto"
+        Precio="0.30"
+        ClasedeArticulos="Tornilleria"/>
+    <Articulo
+        Codigo="FER033"
+        Nombre="Barniz para madera"
+        Precio="12.99"
+        ClasedeArticulos="Pinturas"/>
+    <Articulo
+        Codigo="FER034"
+        Nombre="Llave de pipa"
+        Precio="8.99"
+        ClasedeArticulos="Fontaneria"/>
+    <Articulo
+        Codigo="FER035"
+        Nombre="Enchufe eléctrico"
+        Precio="1.50"
+        ClasedeArticulos="Electricidad"/>
+    <Articulo
+        Codigo="FER036"
+        Nombre="Caja fuerte de seguridad"
+        Precio="89.99"
+        ClasedeArticulos="Proteccion"/>
+    <Articulo
+        Codigo="FER037"
+        Nombre="Llave de impacto eléctrica"
+        Precio="79.99"
+        ClasedeArticulos="Electricos"/>
+    <Articulo
+        Codigo="FER038"
+        Nombre="Tornillos de mariposa"
+        Precio="0.35"
+        ClasedeArticulos="Tornilleria"/>
+    <Articulo
+        Codigo="FER039"
+        Nombre="Laca para muebles"
+        Precio="15.49"
+        ClasedeArticulos="Pinturas"/>
+    <Articulo
+        Codigo="FER040"
+        Nombre="Grifo de cocina"
+        Precio="39.99"
+        ClasedeArticulos="Fontaneria"/>
+    <Articulo
+        Codigo="FER041"
+        Nombre="Caja de interruptores"
+        Precio="3.99"
+        ClasedeArticulos="Electricidad"/>
+    <Articulo
+        Codigo="FER042"
+        Nombre="Chaleco reflectante"
+        Precio="6.99"
+        ClasedeArticulos="Proteccion"/>
+    <Articulo
+        Codigo="FER043"
+        Nombre="Soldadora de arco"
+        Precio="149.99"
+        ClasedeArticulos="MaquinariaPesada"/>
+    <Articulo
+        Codigo="FER044"
+        Nombre="Cilindro de gas propano"
+        Precio="29.99"
+        ClasedeArticulos="Automotriz"/>
+    <Articulo
+        Codigo="FER045"
+        Nombre="Adhesivo de montaje"
+        Precio="8.25"
+        ClasedeArticulos="Adhesivos"/>
+    <Articulo
+        Codigo="FER046"
+        Nombre="Botas de trabajo de acero"
+        Precio="44.99"
+        ClasedeArticulos="Uniformes"/>
+    <Articulo
+        Codigo="FER047"
+        Nombre="Caja de herramientas metálica"
+        Precio="24.99"
+        ClasedeArticulos="Almacenamiento"/>
+    <Articulo
+        Codigo="FER048"
+        Nombre="Sierra de mesa"
+        Precio="119.99"
+        ClasedeArticulos="Carpinteria"/>
+    <Articulo
+        Codigo="FER049"
+        Nombre="Manguera de riego"
+        Precio="12.99"
+        ClasedeArticulos="Jardineria"/>
+    <Articulo
+        Codigo="FER050"
+        Nombre="Aceite de transmisión automática"
+        Precio="8.99"
+        ClasedeArticulos="Automotriz"/>
+</Articulos>
+</root>
