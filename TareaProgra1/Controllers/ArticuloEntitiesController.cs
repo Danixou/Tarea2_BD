@@ -300,17 +300,30 @@ namespace TareaProgra1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Articulo == null)
+            string connectionString = "Server=databasetarea1.ccdblu414uis.us-east-1.rds.amazonaws.com,1433;Database=Tarea2BDI;User ID=admin;Password=bases5181;TrustServerCertificate=true";
+
+            try
             {
-                return Problem("Entity set 'BDContext.Articulo'  is null.");
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using(SqlCommand command = new SqlCommand("EliminarArticulo", connection))
+                    {   
+
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+
             }
-            var articuloEntity = await _context.Articulo.FindAsync(id);
-            if (articuloEntity != null)
+            catch (Exception ex) 
             {
-                _context.Articulo.Remove(articuloEntity);
+                Debug.WriteLine("ERROR: " + ex);
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         
